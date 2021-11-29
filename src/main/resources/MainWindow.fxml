@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.main.Billing.controller.MainWindowController">
+   <children>
+      <TabPane layoutX="29.0" layoutY="140.0" prefHeight="493.0" prefWidth="1228.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="Search">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Button layoutX="902.0" layoutY="24.0" mnemonicParsing="false" onAction="#onSearchFind" prefHeight="31.0" prefWidth="96.0" text="Find" />
+                        <Button layoutX="903.0" layoutY="70.0" mnemonicParsing="false" onAction="#onSearchClear" prefHeight="31.0" prefWidth="94.0" text="Clear" />
+                        <Button layoutX="1054.0" layoutY="70.0" mnemonicParsing="false" onAction="#generateReport" text="Generate Report" />
+                        <TableView fx:id="search_table" accessibleRole="PARENT" layoutX="4.0" layoutY="162.0" onMouseClicked="#onTableClick" prefHeight="285.0" prefWidth="1214.0" AnchorPane.leftAnchor="4.0" AnchorPane.rightAnchor="10.0">
+                          <columns>
+                            <TableColumn fx:id="s_slip_no" prefWidth="81.0" text="Slip No." />
+                            <TableColumn fx:id="s_party_name" prefWidth="250.0" text="Party Name" />
+                              <TableColumn fx:id="s_vehicle_number" minWidth="0.0" prefWidth="166.0" text="Vehicle Number" />
+                              <TableColumn fx:id="s_posted_date" minWidth="0.0" prefWidth="92.0" text="Date" />
+                              <TableColumn fx:id="s_fuel_type" prefWidth="102.0" text="Fuel Type" />
+                              <TableColumn fx:id="s_quantity" prefWidth="95.0" text="Quantity" />
+                              <TableColumn fx:id="s_rate" prefWidth="60.0" text="Rate" />
+                              <TableColumn fx:id="s_amount" prefWidth="124.0" text="Amount" />
+                              <TableColumn fx:id="s_cash" prefWidth="75.0" text="Cash" />
+                              <TableColumn fx:id="s_total_amount" prefWidth="147.0" text="Total Amount" />
+                          </columns>
+                        </TableView>
+                        <TextField fx:id="search_slip_no" layoutX="136.0" layoutY="24.0" />
+                        <Label layoutX="28.0" layoutY="29.0" prefHeight="21.0" prefWidth="106.0" text="Slip Number" />
+                        <ComboBox fx:id="search_party_name" layoutX="483.0" layoutY="24.0" prefHeight="31.0" prefWidth="352.0" />
+                        <Label layoutX="395.0" layoutY="29.0" prefHeight="21.0" prefWidth="84.0" text="Party Name" />
+                        <DatePicker fx:id="search_from_date" layoutX="134.0" layoutY="70.0" />
+                        <DatePicker fx:id="search_to_date" layoutX="483.0" layoutY="70.0" />
+                        <Label layoutX="40.0" layoutY="75.0" text="From Date" />
+                        <Label layoutX="407.0" layoutY="75.0" text="To Date" />
+                        <Button fx:id="search_save" layoutX="1054.0" layoutY="24.0" mnemonicParsing="false" onAction="#generateNewInvoice" prefHeight="31.0" prefWidth="128.0" text="New Invoice" />
+                        <Label layoutX="46.0" layoutY="419.0" />
+                        <Label layoutX="28.0" layoutY="127.0" text="Count :">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="168.0" layoutY="127.0" text="Amount:">
+                        <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font></Label>
+                        <Label layoutX="395.0" layoutY="127.0" text="Cash:">
+                        <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font></Label>
+                        <Label layoutX="585.0" layoutY="127.0" text="Total Amount:">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lCount" layoutX="93.0" layoutY="127.0" prefHeight="21.0" prefWidth="43.0" />
+                        <Label fx:id="lAmount" layoutX="243.0" layoutY="127.0" prefHeight="21.0" prefWidth="108.0" />
+                        <Label fx:id="lCash" layoutX="446.0" layoutY="127.0" prefHeight="21.0" prefWidth="94.0" />
+                        <Label fx:id="lTotalAmount" layoutX="699.0" layoutY="127.0" prefHeight="21.0" prefWidth="128.0" />
+                        <Button fx:id="editButton" layoutX="1072.0" layoutY="112.0" mnemonicParsing="false" onAction="#editInvoice" prefHeight="31.0" prefWidth="94.0" text="Edit" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="Party">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TextField fx:id="party_name" layoutX="144.0" layoutY="32.0" prefHeight="31.0" prefWidth="292.0" promptText="Enter Party Name" />
+                        <TextField fx:id="contact_number" layoutX="144.0" layoutY="135.0" promptText="Enter Contact Number" />
+                        <Label layoutX="23.0" layoutY="37.0" text="Party Name" />
+                        <Label layoutX="23.0" layoutY="140.0" text="Contact Number" />
+                        <Label layoutX="24.0" layoutY="88.0" text="Owner Name" />
+                        <TextField fx:id="owner_name" layoutX="144.0" layoutY="83.0" promptText="Enter Party Owner Name" />
+                        <TextArea fx:id="address" layoutX="577.0" layoutY="82.0" prefHeight="83.0" prefWidth="425.0" promptText="Enter Address " />
+                        <Label layoutX="471.0" layoutY="88.0" text="Party Address" />
+                        <Button fx:id="party_save" layoutX="1083.0" layoutY="32.0" mnemonicParsing="false" onAction="#onPartySave" prefHeight="31.0" prefWidth="93.0" text="Save" />
+                        <Button layoutX="1083.0" layoutY="83.0" mnemonicParsing="false" onAction="#onPartyClear" prefHeight="31.0" prefWidth="92.0" text="Clear" />
+                        <TableView fx:id="party_table" layoutX="23.0" layoutY="195.0" onMouseClicked="#onPartyTableClick" prefHeight="252.0" prefWidth="1187.0">
+                          <columns>
+                            <TableColumn fx:id="tc_party_name" prefWidth="252.0" text="Party Name" />
+                            <TableColumn fx:id="tc_contact" prefWidth="134.0" text="Contact Number" />
+                              <TableColumn fx:id="tc_email" prefWidth="325.0" text="Email" />
+                              <TableColumn fx:id="tc_owner_name" prefWidth="130.0" text="Owner Name" />
+                              <TableColumn fx:id="tc_address" prefWidth="420.0" text="Address" />
+                          </columns>
+                        </TableView>
+                        <TextField fx:id="email" layoutX="577.0" layoutY="32.0" prefHeight="31.0" prefWidth="426.0" promptText="Enter E-Mail" />
+                        <Label layoutX="526.0" layoutY="37.0" text="Email" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+            <Tab text="Payment">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <ComboBox fx:id="p_party" layoutX="109.0" layoutY="28.0" prefHeight="31.0" prefWidth="266.0" promptText="Enter Party Name" />
+                        <Label layoutX="22.0" layoutY="33.0" text="Party Name" />
+                        <DatePicker fx:id="p_date" layoutX="513.0" layoutY="28.0" prefHeight="31.0" prefWidth="160.0" promptText="Enter Date" />
+                        <Label layoutX="429.0" layoutY="33.0" text="From Date" />
+                        <TableView fx:id="payment_table" layoutX="22.0" layoutY="113.0" onMouseClicked="#onPaymentTableClick" prefHeight="317.0" prefWidth="1187.0">
+                          <columns>
+                            <TableColumn fx:id="pc_party" prefWidth="490.0" text="Party Name" />
+                            <TableColumn fx:id="pc_date" prefWidth="172.0" text="Date" />
+                              <TableColumn fx:id="pc_mode" minWidth="3.0" prefWidth="174.0" text="Mode" />
+                              <TableColumn fx:id="pc_amount" prefWidth="117.0" text="Amount" />
+                              <TableColumn fx:id="pc_remark" prefWidth="233.0" text="Remarks" />
+                              <TableColumn fx:id="pc_id" minWidth="0.0" prefWidth="0.0" text="Payment Id" />
+                          </columns>
+                        </TableView>
+                        <Button layoutX="1048.0" layoutY="28.0" mnemonicParsing="false" onAction="#onPaymentFind" prefHeight="31.0" prefWidth="124.0" text="Find" />
+                        <Button layoutX="1047.0" layoutY="73.0" mnemonicParsing="false" onAction="#onPaymentClear" prefHeight="31.0" prefWidth="124.0" text="Clear" />
+                        <Button layoutX="724.0" layoutY="73.0" mnemonicParsing="false" onAction="#onPaymentNew" prefHeight="31.0" prefWidth="126.0" text="New Payment" />
+                        <Button fx:id="paymentEdit" layoutX="566.0" layoutY="73.0" mnemonicParsing="false" onAction="#onPaymentEdit" prefHeight="31.0" prefWidth="125.0" text="Edit " />
+                        <Label layoutX="717.0" layoutY="33.0" text="To Date" />
+                        <DatePicker layoutX="787.0" layoutY="28.0" prefHeight="31.0" prefWidth="175.0" promptText="Enter Date" fx:id="p_to_date"/>
+                        <Button layoutX="879.0" layoutY="73.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="119.0" text="Export" onAction="#onPaymentExport" />
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+            <Tab text="Report">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <DatePicker layoutX="583.0" layoutY="10.0" fx:id="r_from_date" promptText="Enter From Date" />
+                        <ComboBox layoutX="116.0" layoutY="53.0" prefHeight="31.0" prefWidth="233.0" fx:id="r_party" promptText="Enter Party Name"/>
+                        <DatePicker layoutX="583.0" layoutY="53.0" fx:id="r_to_date" promptText="Enter To Date" />
+                        <TextField layoutX="109.0" layoutY="10.0" fx:id="r_no"  promptText="Enter No."/>
+                        <Label layoutX="27.0" layoutY="15.0" text="Invoice No." />
+                        <Label layoutX="25.0" layoutY="58.0" text="Party Name" />
+                        <Label layoutX="481.0" layoutY="15.0" text="From Date" />
+                        <Label layoutX="500.0" layoutY="58.0" text="To Date" />
+                        <Button layoutX="903.0" fx:id="report_find" layoutY="10.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="87.0" text="Find" onAction="#onReportFind"/>
+                        <Button layoutX="903.0" fx:id="report_clear" layoutY="53.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="87.0" text="Clear" onAction="#onReportClear"/>
+                        <Button layoutX="1051.0" fx:id="report_open" layoutY="10.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="94.0" text="Open" onAction="#onReportOpen"/>
+                        <Button layoutX="1052.0" fx:id="report_send" layoutY="53.0" mnemonicParsing="false" text="Send Email" onAction="#onReportSend" />
+                        <TableView fx:id="report_table" layoutX="16.0" layoutY="127.0" prefHeight="304.0" prefWidth="1184.0" onMouseClicked="#onReportTableClick">
+                          <columns>
+                            <TableColumn prefWidth="63.0" text="No." fx:id="rt_no" />
+                            <TableColumn prefWidth="276.0" text="Party Name" fx:id="rt_party" />
+                              <TableColumn prefWidth="333.0" text="Report Name" fx:id="rt_report_name" />
+                              <TableColumn prefWidth="95.0" text="From Date" fx:id="rt_from_date" />
+                              <TableColumn prefWidth="89.0" text="To Date" fx:id="rt_to_date"/>
+                              <TableColumn prefWidth="327.0" text="Location" fx:id="rt_location" />
+                          </columns>
+                        </TableView>
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+            <Tab text="Utility">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Button layoutX="511.0" layoutY="49.0" mnemonicParsing="false" onAction="#backupdbtosql" prefHeight="31.0" prefWidth="250.0" text="Backup" />
+                        <Button layoutX="511.0" layoutY="93.0" mnemonicParsing="false" onAction="#restoreSqlToDb" prefHeight="31.0" prefWidth="249.0" text="Restore" />
+                        <Label layoutX="92.0" layoutY="54.0" prefHeight="21.0" prefWidth="400.0" text="Take Backup of your data. to click on Backup button" />
+                        <Label layoutX="92.0" layoutY="98.0" prefHeight="21.0" prefWidth="400.0" text="To restore data. to click on Restore button" />
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+      <Label layoutX="144.0" layoutY="87.0" text="NH-65 (52), Hisar Rajgarh Road, Jhumpa Kalan (Bhiwani)">
+         <font>
+            <Font name="Arial Black" size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="144.0" layoutY="20.0" prefHeight="74.0" prefWidth="775.0" text="M/s. Shaheed Filling Station" textFill="#460edd">
+         <font>
+            <Font name="Arial Black" size="50.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="120.0" fitWidth="116.0" layoutX="29.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@HP_Logo.jpeg" />
+         </image>
+      </ImageView>
+      <Label layoutX="1039.0" layoutY="47.0" text="M. 9812034475" textFill="#f20f0f">
+         <font>
+            <Font name="Arial Black" size="19.0" />
+         </font>
+      </Label>
+      <Label layoutX="1038.0" layoutY="76.0" text="GST No. 06AQPPD6109CIZ6">
+         <font>
+            <Font name="Arial Black" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="1038.0" layoutY="104.0" text="TIN: 06641112484">
+         <font>
+            <Font name="Arial Black" size="16.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

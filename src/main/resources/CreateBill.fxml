@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" >
+   <children>
+      <TextField fx:id="c_slip_number" layoutX="118.0" layoutY="89.0" prefHeight="31.0" prefWidth="139.0" promptText="Enter Slip Number" />
+      <ComboBox fx:id="c_fuel_type" layoutX="411.0" layoutY="89.0" prefHeight="31.0" prefWidth="164.0" promptText="Enter Fuel Type" />
+      <ComboBox fx:id="c_party_name" layoutX="118.0" layoutY="138.0" prefHeight="31.0" prefWidth="343.0" promptText="Enter Party Name" />
+      <DatePicker fx:id="c_posted_date" layoutX="118.0" layoutY="182.0" promptText="Enter Posted Date" />
+      <TextField fx:id="c_vehicle_number" layoutX="156.0" layoutY="225.0" prefHeight="31.0" prefWidth="299.0" promptText="Enter Vehicle Number" />
+      <TextField fx:id="c_quantity" layoutX="118.0" layoutY="267.0" disable="true" />
+      <TextField fx:id="c_rate" layoutX="411.0" layoutY="267.0" onKeyPressed="#calculateValues" onKeyReleased="#calculateValues" onKeyTyped="#calculateValues" prefHeight="31.0" prefWidth="100.0" promptText="Enter Rate" />
+      <TextField fx:id="c_amount" layoutX="118.0" layoutY="312.0" onKeyPressed="#calculateValues" onKeyReleased="#calculateValues" onKeyTyped="#calculateValues" promptText="Enter Amount"/>
+      <Button fx:id="c_save" layoutX="361.0" layoutY="428.0" mnemonicParsing="false" onAction="#onCreateSave" prefHeight="31.0" prefWidth="139.0" text="Save" />
+      <Label layoutX="171.0" layoutY="23.0" text="Create/Update Bill">
+         <font>
+            <Font name="Arial Black" size="29.0" />
+         </font>
+      </Label>
+      <Label layoutX="24.0" layoutY="94.0" text="Slip Number" />
+      <Label layoutX="24.0" layoutY="138.0" text="Party Name" />
+      <Label layoutX="23.0" layoutY="187.0" text="Posting Date" />
+      <Label layoutX="23.0" layoutY="230.0" text="Vechicle Number" />
+      <Label layoutX="45.0" layoutY="272.0" text="Quantity" />
+      <Label layoutX="47.0" layoutY="317.0" text="Amount" />
+      <Label layoutX="361.0" layoutY="272.0" text="Rate" />
+      <Label layoutX="336.0" layoutY="94.0" text="Fuel Type" />
+      <Button fx:id="c_delete" layoutX="161.0" layoutY="428.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="132.0" text="Delete"  onAction="#onCreateDelete"/>
+      <TextField fx:id="c_cash" layoutX="407.0" layoutY="312.0" promptText="Enter Cash " onKeyPressed="#calculateTotal" onKeyReleased="#calculateTotal" onKeyTyped="#calculateTotal" />
+      <Label layoutX="360.0" layoutY="317.0" text="Cash" />
+      <TextField fx:id="c_total_amount" disable="true" layoutX="118.0" layoutY="357.0" promptText="Total Amount" />
+      <Label layoutX="24.0" layoutY="362.0" prefHeight="21.0" prefWidth="94.0" text="Total Amount" />
+   </children>
+</AnchorPane>
